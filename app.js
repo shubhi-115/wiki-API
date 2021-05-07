@@ -16,6 +16,10 @@ const articleSchema={
 }
 const Article=mongoose.model("Article",articleSchema);
 
+app.get("/",function(req,res){
+  res.sendFile(__dirname+"/index.html");
+});
+///////////////Request Targeting all Articles///////
 app.route("/articles")
 .get(function(req,res){
   Article.find(function(err,foundArticles){
@@ -27,14 +31,15 @@ app.route("/articles")
 
   });
 })
+ 
 .post(function(req,res){
     const newArticle=new Article({
-    title: req.body.title,
-    content: req.body.content
+    title: req.body.titleName,
+    content: req.body.contents,
   });
   newArticle.save(function(err){
     if(!err){
-    res.send("Succesefully rendered Article");}
+    res.send("Succesefully created a new Article");}
     else{
       res.send(err);
     }
@@ -49,11 +54,12 @@ app.route("/articles")
     }
   });
 });
-//////////////for specific request for title match data/////////////
+//////////////Request targeting specific route/////////////
 app.route("/articles/:articleTitle")
 .get(function(req,res){
   Article.findOne({title: req.params.articleTitle},function(err,foundArticle){
     if(!err){
+      console.log(foundArticle);
       res.send(foundArticle);
     }else{
       res.send(err);

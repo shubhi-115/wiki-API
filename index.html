@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESTFUL API</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+</head>
+<body>
+    <div container-fluid >
+         <form action="/articles/find" method="post">
+            <label for="">Seach Articles by title name: </label>
+            <br>
+            <input type="text" name="searchtitle"placeholder="Enter" autofocus>
+            <button type="submit">Search</button>
+        </form>
+       
+        <br>
+        <br>
+        <a href="/articles">See Articles</a>
+        <form action="/articles" method="post">
+            <label for="" class="fw-bolder">Title: </label>
+        <textarea class="text-decoration-none  " name="titleName" id="" cols="10" rows="2" placeholder="Enter Your Topic Name" required autofocus ></textarea>
+        <br>
+        <br>
+        <label for="" class="fw-bolder" >Content: </label>
+        <textarea class="text-decoration-none"name="contents" id="" cols="30" rows="4"  placeholder="Enter the Knowledge of your topic" required autofocus></textarea>
+        <br>
+        <br>
+        <button class="btn btn-lg btn-primary" type="submit">Create Your Post</button>
+        </form>
+        <button class="btn btn-sm btn-danger" name="del type="submit">Delete All Articles</button>
+    </div>
+</body>
+</html>
